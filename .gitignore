@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-/firebaseconfig.js
 /.pnp
 .pnp.js
 .yarn/install-state.gz
