@@ -9,8 +9,8 @@ import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.AUTH_URL,
-  projectId: process.env.PROJECT_ID,
+  databaseURL:process.env.AUTH_URL,
+  projectId: "cweb2-dev",
   storageBucket: process.env.STORAGE_BUCKET,
   messagingSenderId: process.env.MSGID,
   appId: process.env.APP_ID,
