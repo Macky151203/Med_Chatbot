@@ -29,7 +29,7 @@ export default function Mainpage({params}:{params:{"uid":string}}) {
     {
       loading ? <div>Loading</div>:
       <div>
-        <DropdownForm options={doctors} />
+        <DropdownForm options={doctors} uid={uid} />
       </div>
     }
     </>
