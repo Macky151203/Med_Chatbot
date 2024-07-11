@@ -12,6 +12,7 @@ const DropdownForm = ({ options,uid }: { options: any, uid:any }) => {
   const [selectedservice, setSelectedservice] = useState('');
   const [verifying, setverifying] = useState(false)
   const [phone, setphone] = useState('')
+  const [name,setname] = useState('')
   const [code, setcode] = useState('')
   const [services, setservices] = useState([])
   const [popup, setpopup] = useState(false)
@@ -84,11 +85,11 @@ const DropdownForm = ({ options,uid }: { options: any, uid:any }) => {
 
   if (verifying) {
     return <>
-      <div className={`${popup ? `` : ``} fixed h-screen w-screen  justify-center items-center`}>
-        <div>
-          This is the otp screen
-          <input className='border-2 w-full md:w-1/2 border-black p-2 rounded-md' type='text' value={code} onChange={(e) => setcode(e.target.value)} />
-          <button onClick={verify} className='bg-green-500 text-white p-1'>Verify</button>
+      <div className={`${popup ? `` : ``} flex fixed h-screen w-screen  justify-center items-center`}>
+        <div className='flex flex-col justify-center items-center gap-4'>
+          <div>This is the otp screen</div>
+          <input className='border-2 w-72 border-black p-2 rounded-md' type='text' value={code} onChange={(e) => setcode(e.target.value)} />
+          <button onClick={verify} className='bg-green-600 px-4 hover:bg-green-400 p-1 text-white rounded-md'>Verify</button>
           {/* <button onClick={closepopup} className='bg-red-500 text-white p-1'>no</button> */}
         </div>
       </div>
@@ -99,6 +100,8 @@ const DropdownForm = ({ options,uid }: { options: any, uid:any }) => {
     <>
 
       <form className={`flex ${popup ? `opacity-20` : ``} flex-col items-start p-4 gap-2 md:w-1/2`} onSubmit={handleSubmit}>
+      <label className='text-xl' htmlFor="dropdown">Enter Name</label>
+        <input className='border-2 w-full md:w-1/2 border-black p-2 rounded-md' type='text' value={name} onChange={(e) => setname(e.target.value)} />
         <label className='text-xl' htmlFor="dropdown">Choose Doctor:</label>
         <select className='border-2 w-full md:w-1/2 border-black p-2 rounded-md' id="dropdown" value={selectedOption} onChange={handleChangedoc}>
           <option className='border-1' value="" disabled>Select an option</option>
