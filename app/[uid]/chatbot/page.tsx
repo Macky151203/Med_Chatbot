@@ -45,27 +45,29 @@ function Page() {
     let text = '';
     for await (const chunk of result.stream) {
       const chunkText = chunk.text();
-      console.log(chunkText);
+      //console.log(chunkText);
       text += chunkText;
       //setres(text)
     }
     const newobj2 = { role: "Ai", content: text }
     setmessages(p => [...p, newobj2])
-    console.log(messages)
+    //console.log(messages)
   }
   return (
     <div className='w-screen h-screen overflow-x-hidden'>
       <div className='w-full flex flex-col gap-4 '>
-        {messages && messages.map((m,index) => {
+        {messages && messages.map((m, index) => {
           return (
             <div key={index} className={`relative w-full p-2 ${m.role === "User" ? "flex justify-end" : "flex justify-start"}`}>
-              <div className={`p-2 w-auto    `}>
-                
-                <div className={`p-2 w-auto max-w-[700px] rounded-lg ${m.role === "User" ? "bg-violet-600 text-white text-right" : "bg-gray-200 text-left"}`}>
-                <div className={`${m.role === "User" ? "text-right" : " text-left text-violet-700"} text-lg`}>
-                  {m.role}
-                </div>
+              <div className={`p-2 w-auto `}>
+
+                <div className={`p-2 w-auto max-w-[700px] rounded-lg  ${m.role === "User" ? "bg-violet-600 text-white rounded-tr-none text-right" : "bg-gray-200 rounded-tl-none text-left"}`}>
+                  <div className={`${m.role === "User" ? "text-right" : " text-left text-violet-700"} text-lg`}>
+                    {m.role!=="User"&&m.role}
+                  </div>
+                  <div>
                   {m.content}
+                    </div>
                 </div>
               </div>
             </div>
